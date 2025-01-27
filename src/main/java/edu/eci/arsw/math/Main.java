@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.arsw.math;
 
-import java.util.Arrays;
-
-/**
- *
- * @author hcadavid
- */
 public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("1 Hilo:");
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 100, 1)));
 
-    public static void main(String a[]) {
-        System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000)));
+        System.out.println("\n2 Hilos:");
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 100, 2)));
+
+        System.out.println("\n4 Hilos:");
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 100, 4)));
+
+        // Prueba de largo cálculo
+        System.out.println("\nCalculando 10,000 dígitos con 4 hilos...");
+        byte[] result = PiDigits.getDigits(0, 10000, 4);
+        System.out.println("Cálculo terminado.");
+        System.out.println(bytesToHex(result));
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -28,12 +27,6 @@ public class Main {
             hexChars[j * 2] = hexArray[v >>> 4];
             hexChars[j * 2 + 1] = hexArray[v & 0x0F];
         }
-        StringBuilder sb=new StringBuilder();
-        for (int i=0;i<hexChars.length;i=i+2){
-            //sb.append(hexChars[i]);
-            sb.append(hexChars[i+1]);            
-        }
-        return sb.toString();
+        return new String(hexChars);
     }
-
 }
