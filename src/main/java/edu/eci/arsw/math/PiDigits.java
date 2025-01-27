@@ -11,7 +11,7 @@ public class PiDigits {
     private static int DigitsPerSum = 8;
     private static double Epsilon = 1e-17;
 
-    
+
     /**
      * Returns a range of hexadecimal digits of pi.
      * @param start The starting location of the range.

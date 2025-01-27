@@ -31,7 +31,7 @@ public class Main {
         StringBuilder sb=new StringBuilder();
         for (int i=0;i<hexChars.length;i=i+2){
             //sb.append(hexChars[i]);
-            sb.append(hexChars[i+1]);            
+            sb.append(hexChars[i+1]);
         }
         return sb.toString();
     }
