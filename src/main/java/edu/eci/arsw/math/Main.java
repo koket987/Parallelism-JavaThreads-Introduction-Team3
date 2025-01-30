@@ -1,18 +1,23 @@
 package edu.eci.arsw.math;
 
-import java.util.Arrays;
-
 /**
  *
  * @author hcadavid
  */
 public class Main {
-
+    /*
+        *En este metodo se realizaran diferentes experimentos con el fin de analizar consumo de CPU y memoria
+     */
     public static void main(String a[]) {
+        Runtime runtime = Runtime.getRuntime();
+        //int numProcessors = runtime.availableProcessors();
         try {
-            System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 4)));
-            System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 4)));
-            System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000, 4)));
+            //bytesToHex(PiDigits.getDigits(0, 1000000, 1));   //Un solo hilo
+            //bytesToHex(PiDigits.getDigits(0,1000000,numProcessors)); //Tantos hilos como núcleos de procesamiento
+            //bytesToHex(PiDigits.getDigits(0,1000000,2 * numProcessors)); //Tantos hilos como el doble de núcleos de procesamiento
+            //bytesToHex(PiDigits.getDigits(0,1000000,200)); // 200 hilos
+            bytesToHex(PiDigits.getDigits(0,1000000,500)); // 500 hilos
+            //System.exit(0);
         } catch (InterruptedException e) {
             System.err.println("Error during computation: " + e.getMessage());
             Thread.currentThread().interrupt();
